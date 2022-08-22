@@ -9,6 +9,8 @@ public class ArrayStack<E> {
     public ArrayStack(){
         this(CAPACITY);
     }
+
+    @SuppressWarnings(value = "unchecked")
     public ArrayStack(int capacity){
         this.data = (E[]) new Object[capacity];
         topIndex++;
