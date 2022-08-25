@@ -1,8 +1,41 @@
 package com.example.lab.demo.sorting;
 
 public class QuickSorter {
-    public void sort(int[] nums) {// 
+    
+
+	public void sort1(int[] nums){
+		quickSortWithLowAsPivot(nums, 0, nums.length - 1);
+	}
+
+	public void sort2(int[] nums) {// 
 		quickSortWithMedianAsPivot(nums, 0, nums.length - 1);
+	}
+
+	private void quickSortWithLowAsPivot(int[] nums, int low, int high) {
+		if(low >= high) return;
+		int pivotIndex = partion1(nums, low, high);
+		quickSortWithLowAsPivot(nums, low, pivotIndex - 1);
+		quickSortWithLowAsPivot(nums, pivotIndex + 1, high);
+	}
+
+	private int partion1(int[] nums, int low, int high) {
+		int pivotValue = nums[low];
+
+		int left = low + 1, right = high;
+
+		while(left <= right){
+			while(left <= high && nums[left] <= pivotValue){
+				left++;
+			}
+			while(right >= low && nums[right] > pivotValue){
+				right--;
+			}
+			if(left < right){
+				swap(nums, left, right);
+			}
+		}
+		swap(nums, low, right);
+		return right;
 	}
 
 	private void quickSortWithMedianAsPivot(int[] nums, int left, int right) {
