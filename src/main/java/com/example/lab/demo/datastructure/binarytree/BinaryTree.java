@@ -7,6 +7,11 @@ public class BinaryTree {
     class TreeNode {
         TreeNode left, right;
         int value;
+        public TreeNode(int value) {
+            this.value = value;
+        }
+
+        
     }
     /**
      * 前序位置的代码只能从函数参数中获取父节点传递来的数据，而后序位置的代码不仅可以获取参数数据
